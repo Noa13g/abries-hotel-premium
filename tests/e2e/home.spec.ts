@@ -10,6 +10,6 @@ test("home page renders the premium hotel experience", async ({ page }) => {
   ).toBeVisible();
   await expect(page.getByText("Réserver mon séjour").first()).toBeVisible();
   await expect(
-    page.locator("#table").getByText("Restaurant Le Refuge"),
+    page.locator("#table").getByText("Restaurant Le Refuge", { exact: true }),
   ).toBeVisible();
 });

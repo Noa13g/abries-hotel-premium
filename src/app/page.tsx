@@ -12,62 +12,69 @@ import {
   Utensils,
   Wine,
 } from "lucide-react";
+import { siteContent } from "@/content/site";
 
-const heroImage =
-  "https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=2400&q=90";
-
-const atmospheres = [
-  {
-    icon: BedDouble,
-    title: "Chambres de chalet",
-    text: "Bois patiné, linge clair, calme épais et réveils face aux reliefs du Queyras.",
-    image:
-      "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1400&q=85",
+const {
+  hero,
+  hotelName,
+  sections: {
+    maison,
+    chambres,
+    restaurant,
+    barLounge,
+    bienEtre,
+    experiences,
+    privatisation,
+    contact,
   },
+  gallery,
+} = siteContent;
+
+const stayCards = [
+  ...chambres.roomTypes.map((room) => ({
+    icon: BedDouble,
+    title: room.title,
+    text: room.summary,
+    image: room.slug === "familiales" ? chambres.images[0].src : chambres.images[1].src,
+    meta: `${room.count} chambres · ${room.capacity}`,
+  })),
   {
     icon: Utensils,
-    title: "Restaurant Le Refuge",
-    text: "Une table généreuse, de saison, pensée pour les grandes faims d’après montagne.",
-    image:
-      "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1400&q=85",
+    title: restaurant.eyebrow,
+    text: restaurant.subtitle,
+    image: restaurant.images[0].src,
+    meta: restaurant.highlights[0],
   },
   {
     icon: Wine,
-    title: "Bar Lounge La Lauze",
-    text: "Boiseries, pierre, lumières basses et verres tranquilles à l’heure du retour.",
-    image:
-      "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1400&q=85",
+    title: barLounge.eyebrow,
+    text: barLounge.subtitle,
+    image: barLounge.images[0].src,
+    meta: barLounge.highlights[0],
   },
 ];
 
-const gallery = [
+const experienceCards = [
   {
-    title: "Bâtisse ancienne",
-    image:
-      "https://images.unsplash.com/photo-1517320964276-a002fa203177?auto=format&fit=crop&w=1300&q=85",
+    icon: Snowflake,
+    title: "Hiver",
+    text: "Ski alpin, ski de randonnée, neige silencieuse et retours près du feu.",
   },
   {
-    title: "Feu et bois",
-    image:
-      "https://images.unsplash.com/photo-1489533119213-66a5cd877091?auto=format&fit=crop&w=1200&q=85",
+    icon: Trees,
+    title: "Été",
+    text: "Randonnée, alpages, via ferrata, rafting, botanique et longues soirées en altitude.",
   },
   {
-    title: "Table alpine",
-    image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85",
+    icon: Bath,
+    title: "Bien-être",
+    text: bienEtre.subtitle,
   },
   {
-    title: "Neige du Queyras",
-    image:
-      "https://images.unsplash.com/photo-1483664852095-d6cc6870702d?auto=format&fit=crop&w=1200&q=85",
+    icon: Mountain,
+    title: "Privatisation",
+    text: privatisation.subtitle,
   },
-];
-
-const experiences = [
-  ["Hiver", "Ski, raquettes, neige silencieuse et retours près du feu."],
-  ["Été", "Alpages, torrents, cols et longues soirées en altitude."],
-  ["Bien-être", "Espace forme, massages et récupération après l’effort."],
-  ["Privatisation", "Une maison alpine pour rassembler famille, équipe ou amis."],
 ];
 
 export default function Home() {
@@ -78,9 +85,9 @@ export default function Home() {
       <section className="relative min-h-screen overflow-hidden border-b border-[#6f5636]/50">
         <div
           className="absolute inset-0 scale-105 bg-cover bg-center motion-safe:animate-[slow-zoom_22s_ease-out_forwards]"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{ backgroundImage: `url(${hero.image.src})` }}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(34,20,10,0.86),rgba(34,20,10,0.52)_42%,rgba(34,20,10,0.2)),linear-gradient(180deg,rgba(18,15,10,0.28),rgba(18,15,10,0.78))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(34,20,10,0.88),rgba(34,20,10,0.58)_45%,rgba(34,20,10,0.24)),linear-gradient(180deg,rgba(18,15,10,0.28),rgba(18,15,10,0.8))]" />
         <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#25190f] to-transparent" />
 
         <nav className="fixed left-1/2 top-4 z-40 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 border border-[#e6d1ad]/25 bg-[#2a1a0f]/72 shadow-2xl shadow-black/25 backdrop-blur-md sm:top-6">
@@ -91,7 +98,7 @@ export default function Home() {
               </span>
               <span className="leading-tight">
                 <span className="block font-serif text-xl text-[#fff4dd]">
-                  Abriès Hôtel
+                  {hotelName}
                 </span>
                 <span className="hidden text-[0.65rem] uppercase tracking-[0.28em] text-[#dec8a2] sm:block">
                   Maison de montagne
@@ -101,16 +108,16 @@ export default function Home() {
 
             <div className="hidden items-center gap-7 text-sm text-[#f4e3c4]/82 lg:flex">
               <a href="#maison" className="transition hover:text-white">
-                La maison
+                {maison.navLabel}
               </a>
               <a href="#chambres" className="transition hover:text-white">
-                Chambres
+                {chambres.navLabel}
               </a>
               <a href="#table" className="transition hover:text-white">
                 Table
               </a>
               <a href="#experiences" className="transition hover:text-white">
-                Queyras
+                {experiences.navLabel}
               </a>
             </div>
 
@@ -133,14 +140,13 @@ export default function Home() {
           <div className="max-w-3xl pb-10 sm:pb-14">
             <div className="mb-6 inline-flex items-center gap-2 border border-[#e6d1ad]/30 bg-[#2b1b10]/58 px-4 py-2 text-xs uppercase tracking-[0.24em] text-[#f3ddb6] backdrop-blur-sm">
               <MapPin className="size-4" />
-              Abriès-Ristolas · Queyras
+              {hero.eyebrow}
             </div>
             <h1 className="font-serif text-5xl leading-[0.95] text-[#fff6e6] drop-shadow-2xl sm:text-7xl lg:text-8xl">
-              L’âme d’un chalet, le confort d’un hôtel.
+              {hero.title}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#f6e5c9]/88 sm:text-xl">
-              À Abriès-Ristolas, une adresse de montagne où l’on vient dormir,
-              dîner, respirer et retrouver le goût des choses simples.
+              {hero.subtitle}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -178,7 +184,7 @@ export default function Home() {
               </div>
             ))}
             <a
-              href="mailto:contact@abrieshotel.fr?subject=Demande%20de%20séjour%20-%20Abriès%20Hôtel"
+              href="#contact"
               className="inline-flex min-h-16 items-center justify-center bg-[#29402d] px-7 font-semibold text-[#fff4dd] transition hover:bg-[#3b583f]"
             >
               Voir les disponibilités
@@ -195,32 +201,25 @@ export default function Home() {
         <div className="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div className="border-l border-[#8d704a] pl-6">
             <p className="mb-4 text-sm uppercase tracking-[0.28em] text-[#7b5d37]">
-              Chalet ancien rénové
+              {maison.eyebrow}
             </p>
             <h2 className="font-serif text-4xl leading-tight sm:text-6xl">
-              Une bâtisse de montagne avec des murs qui semblent déjà connaître
-              vos retours de balade.
+              {maison.title}
             </h2>
           </div>
           <div className="grid gap-6">
             <p className="text-lg leading-8 text-[#66533d]">
-              Ici, le premium ne cherche pas à impressionner. Il se devine dans
-              l’accueil, la chaleur des matières, la table du soir, le calme des
-              chambres et cette façon très alpine de prendre soin sans en faire
-              trop.
+              {maison.description}
             </p>
-            <div className="grid gap-3 sm:grid-cols-3">
-              {[
-                ["Bois ancien", "Matières vraies"],
-                ["Pierre & lauze", "Ancrage local"],
-                ["Feu doux", "Après-ski chaleureux"],
-              ].map(([value, label]) => (
+            <div className="grid gap-3 sm:grid-cols-2">
+              {maison.highlights.map((highlight) => (
                 <div
-                  key={value}
+                  key={highlight}
                   className="border border-[#d2bb94] bg-[#fbf4e8]/68 p-5 shadow-sm"
                 >
-                  <p className="font-serif text-2xl text-[#2b1a0e]">{value}</p>
-                  <p className="mt-1 text-sm text-[#756148]">{label}</p>
+                  <p className="font-serif text-2xl text-[#2b1a0e]">
+                    {highlight}
+                  </p>
                 </div>
               ))}
             </div>
@@ -233,21 +232,19 @@ export default function Home() {
           <div className="mb-10 grid gap-6 border-b border-[#8b6b43]/70 pb-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
             <div>
               <p className="mb-4 text-sm uppercase tracking-[0.28em] text-[#d7b476]">
-                Séjourner
+                {chambres.eyebrow}
               </p>
               <h2 className="max-w-4xl font-serif text-4xl leading-tight text-[#fff4dd] sm:text-6xl">
-                Des espaces simples, beaux, solides, faits pour dormir vraiment.
+                {chambres.title}
               </h2>
             </div>
             <p className="text-lg leading-8 text-[#d9c6a8]/76">
-              Pas d’effet de scène inutile: des chambres de montagne, des
-              matières naturelles, une sensation de refuge et juste ce qu’il
-              faut de raffinement.
+              {chambres.subtitle}
             </p>
           </div>
 
           <div className="grid gap-5 lg:grid-cols-3">
-            {atmospheres.map((card) => (
+            {stayCards.map((card) => (
               <article
                 key={card.title}
                 className="group border border-[#8b6b43]/60 bg-[#321f12] shadow-2xl shadow-black/25"
@@ -258,6 +255,9 @@ export default function Home() {
                 />
                 <div className="p-6">
                   <card.icon className="mb-6 size-8 text-[#d7b476]" />
+                  <p className="mb-3 text-xs uppercase tracking-[0.22em] text-[#d7b476]/76">
+                    {card.meta}
+                  </p>
                   <h3 className="font-serif text-3xl text-[#fff4dd]">
                     {card.title}
                   </h3>
@@ -275,21 +275,32 @@ export default function Home() {
         id="table"
         className="grid border-y border-[#d0b98d] bg-[#efe0c8] text-[#2a1b10] lg:grid-cols-2"
       >
-        <div className="min-h-[34rem] bg-[url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=85')] bg-cover bg-center" />
+        <div
+          className="min-h-[34rem] bg-cover bg-center"
+          style={{ backgroundImage: `url(${restaurant.images[0].src})` }}
+        />
         <div className="flex items-center px-5 py-20 sm:px-10 lg:px-16">
           <div className="max-w-xl">
             <Flame className="mb-6 size-10 text-[#8a5d2d]" />
             <p className="mb-4 text-sm uppercase tracking-[0.28em] text-[#7b5d37]">
-              Restaurant Le Refuge
+              {restaurant.eyebrow}
             </p>
             <h2 className="font-serif text-4xl leading-tight sm:text-6xl">
-              Une table de montagne, généreuse et sincère.
+              {restaurant.title}
             </h2>
             <p className="mt-6 text-lg leading-8 text-[#66533d]">
-              Après la neige, les sentiers ou la route des cols, on retrouve le
-              plaisir d’une salle chaude, d’une assiette réconfortante et d’une
-              hospitalité sans manières.
+              {restaurant.description}
             </p>
+            <div className="mt-7 flex flex-wrap gap-2">
+              {restaurant.specialties.slice(0, 4).map((specialty) => (
+                <span
+                  key={specialty}
+                  className="border border-[#b89761] px-3 py-2 text-sm text-[#5a4125]"
+                >
+                  {specialty}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -302,29 +313,24 @@ export default function Home() {
         <div className="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <p className="mb-4 text-sm uppercase tracking-[0.28em] text-[#d7b476]">
-              Saisons du Queyras
+              {experiences.eyebrow}
             </p>
             <h2 className="font-serif text-4xl leading-tight sm:text-6xl">
-              Neige, sapins, alpages et longues soirées au calme.
+              {experiences.title}
             </h2>
+            <p className="mt-6 text-lg leading-8 text-[#e3d1b5]/72">
+              {experiences.subtitle}
+            </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {experiences.map(([title, text]) => (
+            {experienceCards.map((item) => (
               <div
-                key={title}
+                key={item.title}
                 className="border border-[#d7b476]/28 bg-[#f8eddc]/8 p-6"
               >
-                {title === "Hiver" ? (
-                  <Snowflake className="mb-6 size-7 text-[#d7b476]" />
-                ) : title === "Été" ? (
-                  <Trees className="mb-6 size-7 text-[#d7b476]" />
-                ) : title === "Bien-être" ? (
-                  <Bath className="mb-6 size-7 text-[#d7b476]" />
-                ) : (
-                  <Mountain className="mb-6 size-7 text-[#d7b476]" />
-                )}
-                <h3 className="font-serif text-3xl">{title}</h3>
-                <p className="mt-3 leading-7 text-[#e3d1b5]/72">{text}</p>
+                <item.icon className="mb-6 size-7 text-[#d7b476]" />
+                <h3 className="font-serif text-3xl">{item.title}</h3>
+                <p className="mt-3 leading-7 text-[#e3d1b5]/72">{item.text}</p>
               </div>
             ))}
           </div>
@@ -345,9 +351,9 @@ export default function Home() {
             <Trees className="hidden size-12 text-[#29402d] sm:block" />
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {gallery.map((item, index) => (
+            {gallery.slice(0, 6).map((item, index) => (
               <figure
-                key={item.title}
+                key={item.src}
                 className={`group border border-[#d0b98d] bg-[#fbf4e8] p-2 shadow-sm ${
                   index === 0 ? "lg:col-span-2 lg:row-span-2" : ""
                 }`}
@@ -356,10 +362,10 @@ export default function Home() {
                   className={`bg-cover bg-center sepia-[0.12] transition duration-700 group-hover:sepia-0 ${
                     index === 0 ? "h-[31rem]" : "h-60"
                   }`}
-                  style={{ backgroundImage: `url(${item.image})` }}
+                  style={{ backgroundImage: `url(${item.src})` }}
                 />
                 <figcaption className="px-2 py-3 text-xs uppercase tracking-[0.22em] text-[#7b5d37]">
-                  {item.title}
+                  {item.alt}
                 </figcaption>
               </figure>
             ))}
@@ -374,32 +380,33 @@ export default function Home() {
         <div className="mx-auto border border-[#d7b476]/35 bg-[#321f12] shadow-2xl shadow-black/20 lg:grid lg:max-w-6xl lg:grid-cols-[1.05fr_0.95fr]">
           <div className="p-8 sm:p-12 lg:p-16">
             <p className="mb-4 text-sm uppercase tracking-[0.28em] text-[#d7b476]">
-              Préparer l’échappée
+              {contact.eyebrow}
             </p>
             <h2 className="font-serif text-4xl leading-tight sm:text-6xl">
-              Votre maison de montagne vous attend.
+              {contact.title}
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#e3d1b5]/72">
-              Chambres, restaurant, bien-être, privatisation ou séjour sportif:
-              l’équipe vous aide à composer une parenthèse simple, belle et
-              chaleureuse.
+              {contact.description}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="mailto:contact@abrieshotel.fr?subject=Réservation%20-%20Abriès%20Hôtel"
+                href={contact.phoneHref}
                 className="border border-[#f5dfb8]/35 bg-[#f0d39a] px-7 py-4 text-center font-semibold text-[#26170c] transition hover:bg-[#fff1d5]"
               >
-                Réserver mon séjour
+                Appeler {contact.phone}
               </a>
               <a
-                href="tel:+33400000000"
+                href={contact.mapUrl}
                 className="border border-[#d7b476]/35 px-7 py-4 text-center font-semibold text-[#fff4dd] transition hover:bg-[#f8eddc]/8"
               >
-                Appeler l’hôtel
+                Voir l’itinéraire
               </a>
             </div>
           </div>
-          <div className="min-h-80 bg-[url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1300&q=85')] bg-cover bg-center" />
+          <div
+            className="min-h-80 bg-cover bg-center"
+            style={{ backgroundImage: `url(${contact.images[0].src})` }}
+          />
         </div>
       </section>
     </main>
