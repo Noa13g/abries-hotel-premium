@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   Bath,
   BedDouble,
@@ -16,8 +15,6 @@ import {
 
 const heroImage =
   "https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=2400&q=90";
-const basePath = process.env.GITHUB_ACTIONS === "true" ? "/abries-hotel-premium" : "";
-const brandSign = `${basePath}/brand/enseigne-abries-hotel.png`;
 
 const atmospheres = [
   {
@@ -89,16 +86,16 @@ export default function Home() {
         <nav className="fixed left-1/2 top-4 z-40 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 border border-[#e6d1ad]/25 bg-[#2a1a0f]/72 shadow-2xl shadow-black/25 backdrop-blur-md sm:top-6">
           <div className="flex items-center justify-between px-4 py-3 sm:px-5">
             <a href="#" className="flex items-center gap-3">
-              <Image
-                src={brandSign}
-                alt="Abriès Hôtel, chalet de montagne"
-                width={240}
-                height={120}
-                priority
-                className="h-12 w-auto object-contain sm:h-14"
-              />
-              <span className="hidden border-l border-[#e6d1ad]/28 pl-4 text-[0.65rem] uppercase tracking-[0.28em] text-[#dec8a2] xl:block">
-                Maison de montagne
+              <span className="grid size-11 place-items-center border border-[#e8d3ad]/45 bg-[#f1dfbd]/12 font-serif text-xl tracking-wide text-[#f8e8c9]">
+                AH
+              </span>
+              <span className="leading-tight">
+                <span className="block font-serif text-xl text-[#fff4dd]">
+                  Abriès Hôtel
+                </span>
+                <span className="hidden text-[0.65rem] uppercase tracking-[0.28em] text-[#dec8a2] sm:block">
+                  Maison de montagne
+                </span>
               </span>
             </a>
 
@@ -134,14 +131,6 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-end px-5 pb-6 pt-32 sm:px-8 lg:px-10">
           <div className="max-w-3xl pb-10 sm:pb-14">
-            <Image
-              src={brandSign}
-              alt="Enseigne Abriès Hôtel"
-              width={640}
-              height={320}
-              priority
-              className="mb-7 h-auto w-full max-w-[25rem] drop-shadow-2xl sm:max-w-[34rem]"
-            />
             <div className="mb-6 inline-flex items-center gap-2 border border-[#e6d1ad]/30 bg-[#2b1b10]/58 px-4 py-2 text-xs uppercase tracking-[0.24em] text-[#f3ddb6] backdrop-blur-sm">
               <MapPin className="size-4" />
               Abriès-Ristolas · Queyras
