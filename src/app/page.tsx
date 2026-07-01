@@ -12,8 +12,6 @@ import {
   Utensils,
   Wine,
 } from "lucide-react";
-import Image from "next/image";
-import { asset } from "@/content/asset";
 import { siteContent } from "@/content/site";
 
 const {
@@ -79,8 +77,6 @@ const experienceCards = [
   },
 ];
 
-const navLogoSrc = asset("/brand/enseigne-abries-hotel.png");
-
 export default function Home() {
   return (
     <main className="relative overflow-hidden bg-[#25190f] text-[#f8eddc]">
@@ -97,15 +93,8 @@ export default function Home() {
         <nav className="fixed left-1/2 top-4 z-40 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 border border-[#e6d1ad]/25 bg-[#2a1a0f]/72 shadow-2xl shadow-black/25 backdrop-blur-md sm:top-6">
           <div className="flex items-center justify-between px-4 py-3 sm:px-5">
             <a href="#" className="flex items-center gap-3">
-              <span className="grid h-12 w-16 place-items-center border border-[#e8d3ad]/45 bg-[#f1dfbd]/10 p-1.5">
-                <Image
-                  src={navLogoSrc}
-                  alt="Logo Abriès Hôtel"
-                  width={160}
-                  height={80}
-                  className="h-full w-full object-contain"
-                  priority
-                />
+              <span className="grid size-11 place-items-center border border-[#e8d3ad]/45 bg-[#f1dfbd]/12 font-serif text-xl tracking-wide text-[#f8e8c9]">
+                AH
               </span>
               <span className="leading-tight">
                 <span className="block font-serif text-xl text-[#fff4dd]">
