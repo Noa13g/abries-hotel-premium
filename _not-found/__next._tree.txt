@@ -1,2 +1,2 @@
-:HL["/abries-hotel-premium/_next/static/chunks/19071-58w7xyh.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"CwrU2Bj_5fKm3Rf0_6e8p"}
+:HL["/abries-hotel-premium/_next/static/chunks/208ofbk2bv1lg.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"UDidQNA1lzJwgb2At-Ilr"}
