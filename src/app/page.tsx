@@ -96,13 +96,13 @@ export default function Home() {
 
         <nav className="fixed left-1/2 top-4 z-40 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 border border-[#e6d1ad]/25 bg-[#2a1a0f]/72 shadow-2xl shadow-black/25 backdrop-blur-md sm:top-6">
           <div className="flex items-center justify-between px-4 py-3 sm:px-5">
-            <a href="#" className="flex items-center gap-4">
-              <span className="grid h-16 w-28 place-items-center border border-[#e8d3ad]/45 bg-[#f1dfbd]/12 p-2 shadow-lg shadow-black/20 sm:h-[4.75rem] sm:w-36">
+            <a href="#" className="flex items-center gap-3">
+              <span className="grid h-12 w-16 place-items-center border border-[#e8d3ad]/45 bg-[#f1dfbd]/10 p-1.5">
                 <Image
                   src={navLogoSrc}
                   alt="Logo Abriès Hôtel"
-                  width={320}
-                  height={160}
+                  width={160}
+                  height={80}
                   className="h-full w-full object-contain"
                   priority
                 />
