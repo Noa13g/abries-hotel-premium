@@ -1,5 +1,5 @@
-:HL["/abries-hotel-premium/_next/static/chunks/208ofbk2bv1lg.css","style"]
+:HL["/abries-hotel-premium/_next/static/chunks/3jc6nx3r88the.css","style"]
 :HL["/abries-hotel-premium/_next/static/media/01e4147cff8141ee-s.p.3huc2loe0ie8a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/abries-hotel-premium/_next/static/media/797e433ab948586e-s.p.0r6juujl39pe6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/abries-hotel-premium/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"UDidQNA1lzJwgb2At-Ilr"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"Vf-2kTqlJkOF6HmYmvNmp"}
