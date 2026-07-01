@@ -18,7 +18,6 @@ import { siteContent } from "@/content/site";
 
 const {
   hero,
-  hotelName,
   sections: {
     maison,
     chambres,
@@ -79,7 +78,7 @@ const experienceCards = [
   },
 ];
 
-const navLogoSrc = asset("/brand/enseigne-abries-hotel.png");
+const navLogoSrc = asset("/brand/abries-logo-nav.png");
 
 export default function Home() {
   return (
@@ -97,21 +96,18 @@ export default function Home() {
         <nav className="fixed left-1/2 top-4 z-40 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 border border-[#e6d1ad]/25 bg-[#2a1a0f]/72 shadow-2xl shadow-black/25 backdrop-blur-md sm:top-6">
           <div className="flex items-center justify-between px-4 py-3 sm:px-5">
             <a href="#" className="flex items-center gap-4">
-              <span className="grid h-16 w-28 place-items-center border border-[#e8d3ad]/45 bg-[#f1dfbd]/12 p-2 shadow-lg shadow-black/20 sm:h-[4.75rem] sm:w-36">
+              <span className="grid h-14 w-52 place-items-center border border-[#e8d3ad]/45 bg-[#130c07]/38 px-4 py-2 shadow-xl shadow-black/25 sm:h-[4.5rem] sm:w-72">
                 <Image
                   src={navLogoSrc}
                   alt="Logo Abriès Hôtel"
-                  width={320}
-                  height={160}
-                  className="h-full w-full object-contain"
+                  width={1240}
+                  height={190}
+                  className="h-full w-full object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]"
                   priority
                 />
               </span>
-              <span className="leading-tight">
-                <span className="block font-serif text-xl text-[#fff4dd]">
-                  {hotelName}
-                </span>
-                <span className="hidden text-[0.65rem] uppercase tracking-[0.28em] text-[#dec8a2] sm:block">
+              <span className="hidden leading-tight xl:block">
+                <span className="text-[0.65rem] uppercase tracking-[0.28em] text-[#dec8a2]">
                   Maison de montagne
                 </span>
               </span>
