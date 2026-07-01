@@ -5,11 +5,11 @@ test("home page renders the premium hotel experience", async ({ page }) => {
 
   await expect(
     page.getByRole("heading", {
-      name: "Un refuge contemporain au cœur du Queyras",
+      name: "L’âme d’un chalet, le confort d’un hôtel.",
     }),
   ).toBeVisible();
   await expect(page.getByText("Réserver mon séjour").first()).toBeVisible();
   await expect(
-    page.locator("#restaurant").getByText("Restaurant Le Refuge"),
+    page.locator("#table").getByText("Restaurant Le Refuge"),
   ).toBeVisible();
 });
